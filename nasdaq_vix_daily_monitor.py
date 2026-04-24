@@ -19,6 +19,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime
+from pathlib import Path
 import os
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -28,10 +29,10 @@ import pandas as pd
 import yfinance as yf
 
 
-BASE_DIR = r"C:\Users\Administrator\.easyclaw\workspace"
-SUMMARY_OUT = os.path.join(BASE_DIR, "nasdaq_vix_monitor_summary.csv")
-REPORT_OUT = os.path.join(BASE_DIR, "nasdaq_vix_monitor_report.md")
-DATA_OUT = os.path.join(BASE_DIR, "nasdaq_vix_daily_data.csv")
+BASE_DIR = Path(__file__).resolve().parent
+SUMMARY_OUT = BASE_DIR / "nasdaq_vix_monitor_summary.csv"
+REPORT_OUT = BASE_DIR / "nasdaq_vix_monitor_report.md"
+DATA_OUT = BASE_DIR / "nasdaq_vix_daily_data.csv"
 
 QQ_SMTP_HOST = "smtp.qq.com"
 QQ_SMTP_PORT = 465
